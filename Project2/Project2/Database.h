@@ -1,12 +1,17 @@
 #ifndef Database_H
 #define Database_H
 #include <string>
+#include <map>
 #include "Vehicle.h"
+#include "Reservation.h"
+#include "User.h"
 
 // Holds up to 50 vehicles and manages their reservations
 class Database {
 private:
-	Vehicle* inventory[50]; // nullptr = empty slot
+	map<std::string, Vehicle*> inventory; // nullptr = empty slot
+	vector<Reservation> reservations;
+	map<std::string, User> users;
 	int inventorycount;
 	int currentdate; // starts on 1
 
